@@ -287,4 +287,21 @@ section{
     margin: 1.5rem 2.8rem;
     color: #065F46;
     display: none;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+#order-complete-msg button {
+    border: none;
+    background-color: inherit;
+    color: #065F46;
+}
+
+.star-container button:focus {
+    outline: none; 
+}
+
+ #submit-rating:hover, #submit-rating:focus {
+    outline: none;
+    box-shadow: 0 6px 10px #065F46;
 }

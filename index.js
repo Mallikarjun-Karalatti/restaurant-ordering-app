@@ -33,6 +33,25 @@ document.addEventListener('click', (e) => {
             form.reportValidity() // show native validation messages
         }
     }
+    else if (e.target.classList.contains('fa-star')) {
+        const starNum = parseInt(e.target.dataset.starNum, 10)
+        const stars = document.querySelectorAll('.fa-star')
+
+        // If the clicked star is already red, reset all to green
+        if (e.target.style.color === "red") {
+            stars.forEach(star => star.style.color = "#065F46")
+        } else {
+            // Color all stars up to the clicked one red
+            stars.forEach(star => {
+                const num = parseInt(star.dataset.starNum, 10)
+                star.style.color = num <= starNum ? "red" : "#065F46"
+            })
+        }
+    }
+    else if(e.target.id === "submit-rating"){
+       document.querySelector('.rating').style.display = "none"
+    }
+
 })
 
 function getFoodItems() {
@@ -117,13 +136,24 @@ function getOrderCompleteMsg() {
     
     const orderCompleteMsgHtml = `
         <h2>Thanks, Arjun! Your order on it's way.</h2>
+        <div class="rating">
+            <h3 class="mgn-btm-2">Rate your experience</h3>
+            <div class="star-container mgn-btm">
+               <button><i class="fa-regular fa-star" data-star-num="1"></i></button>
+               <button><i class="fa-regular fa-star" data-star-num="2"></i></button>
+               <button><i class="fa-regular fa-star" data-star-num="3"></i></button>
+               <button><i class="fa-regular fa-star" data-star-num="4"></i></button>
+               <button><i class="fa-regular fa-star" data-star-num="5"></i></button>
+            </div>
+            <button id="submit-rating">submit</button>
+        <div>
     `
     
     cardDetailForm.style.display = "none"
     orderDetailsSection.style.display = "none"
     containerEl.style.backgroundColor = ""
     render(orderCompleteMsgEl, orderCompleteMsgHtml)
-    orderCompleteMsgEl.style.display = "block"
+    orderCompleteMsgEl.style.display = "flex"
 }
 
 
