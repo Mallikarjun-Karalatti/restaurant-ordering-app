@@ -24,9 +24,14 @@ document.addEventListener('click', (e) => {
     else if(e.target.id === "complete-order-btn") {
         getCardDetailForm()
     }
-      else if(e.target.id === "pay-btn") {
+    else if(e.target.id === "pay-btn") {
         e.preventDefault()
-        getOrderCompleteMsg()
+        const form = e.target.closest("form")
+        if (form.checkValidity()) {
+            getOrderCompleteMsg()
+        } else {
+            form.reportValidity() // show native validation messages
+        }
     }
 })
 
