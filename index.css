@@ -1,0 +1,290 @@
+:root {
+    /* Font - Size */
+    --fs-level1: 3rem;
+    --fs-level2: 2.2rem;
+    --fs-level2-a: 2rem;
+    --fs-level3: 1.5rem;
+    --fs-level4: 0.85rem;
+    
+    /* Font - weight */
+    --fw-bold: 900;
+    --fw-light: 400;
+    
+    /* Font - family  */
+    --ff-primary:  "Smythe", system-ui, sans-serif;
+    
+    /* Color */
+    --bg-color: whitesmoke;
+    --bg-color2: #16DB99;
+    
+    /* Text - color */
+    --txt-color-primary: #0a0a0a;  /* Rich Black */
+    --txt-color-secondary: #616569; /* Iron Gray */
+    --txt-color-light: white;
+}
+
+/* Box - sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Margin - reset */
+body,
+h1, h2, h3, h4, h5, h6,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Make img elements easy to work with */
+img,
+picture {
+    max-width: 100%;
+}
+
+/* Make form elements easy to work with */
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+}
+
+/* remove animations for websites that opted out animation */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Typography */
+
+h1 {
+    font-size: var(--fs-level1);
+    letter-spacing: 0.2rem;
+    position: relative;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: var(--fs-level3);
+    position: relative;
+    font-weight: bold;
+}
+
+/* Utility class */
+.flex {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    /* padding: 2rem; */
+}
+
+.mgn-btm {
+    margin-bottom: 1rem;
+}
+
+.mgn-btm-2 {
+    margin-bottom: 2rem;
+}
+
+.padding-1 {
+    padding: 2rem 0;
+}
+
+.padding-2{
+    padding: 0.75rem 0;
+}
+
+.fs-big {
+    font-size: var(--fs-level2);
+}
+
+.fs-big-l2 {
+    font-size: var(--fs-level2-a);
+}
+
+.txt-align-center{
+  text-align: center;
+}
+
+.gap-1{
+    gap: 1rem;
+}
+
+.position-right {
+    position: absolute;
+    right: 2rem;
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1.2rem;
+    font-family: var(--ff-primary);
+    color: var(--txt-color-primary);
+}
+
+.container {
+    max-width: 60%;
+    margin: 0 auto;
+    position: relative;
+}
+
+header {
+    width: 100%;
+    padding: 6rem 2.5rem;
+    color: var(--txt-color-light);
+    position: relative;
+    text-shadow: 0px 0px 5px var(--txt-color-secondary); 
+    text-align: center;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/burger-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(3px);
+    z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1; /* Keeps text on top of the blur */
+}
+
+section{
+    padding: 3rem 3rem;
+}
+
+.food-item {
+    padding-bottom: 2.5rem;
+    border-bottom: 0.1px solid #d3d3d3;
+    position: relative;
+}
+
+.food-emoji {
+   font-size: 5rem;
+}
+
+.add-item-btn {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 1.5rem; 
+    border-radius: 50%;
+    font-size: 50px;
+    font-weight: lighter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: inherit;
+    position: absolute;
+    right: 1rem;
+    border: 0.1px solid #d3d3d3;
+}
+
+.ingredients {
+    color: var(--txt-color-secondary);
+}
+
+.plus-icon {
+    color: var(--txt-color-secondary);
+    font-size: var(--fs-level3);
+}
+
+.order-item {
+    position: relative;
+}
+
+.remove-btn {
+    border: none;
+    background-color: var(--bg-color2);
+    border-radius: 1.5px;
+    color: var(--txt-color-light);
+    letter-spacing: 0.075rem;
+}
+
+.order-total {
+    padding-top: 2.5rem;
+    border-top: 0.1px solid var(--txt-color-secondary);
+    position: relative;
+    margin-top: 1rem;
+}
+
+.order-total span{
+    position: absolute;
+}
+
+.btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 2px;
+    background-color: var(--bg-color2);
+    color: var(--txt-color-light);
+    letter-spacing: 0.06rem;
+    margin-top: 4rem;
+    font-size: var(--fs-level3);
+}
+
+#card-detail-form{
+    position: fixed;       /* overlay entire viewport */
+    top: 0; bottom: 0; left: 0; right: 0;
+    margin: auto;
+    width: 50%;
+    height: 50%;
+    background-color: rgba(0,0,0,0.5); /* dim background */
+    display: none;         /* hidden by default */
+    z-index: 1000;         /* above everything else */
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 10px rgba(0,0.5,0.5,0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+#card-detail-form form{
+    flex-direction: column;
+    width: 100%;
+    font-weight: bold;
+    background: white;
+    padding: 2.5rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#card-detail-form input {
+    font-size: var(--fs-level3);
+    width: 100%;
+    padding: 1rem 2rem;
+}
+
+#card-detail-form h2 {
+    font-size: var(--fs-level2);
+}
+
+#card-detail-form button {
+    margin-top: 1rem;
+    font-size: var(--fs-level2-a);
+    letter-spacing: 0.02rem;
+}
+
+#order-complete-msg {
+    text-align: center;
+    font-size: var(--fs-level2-a);
+    background-color: #ECFDF5;
+    padding: 4rem 0.5rem;
+    margin: 1.5rem 2.8rem;
+    color: #065F46;
+    display: none;
+}
