@@ -66,7 +66,7 @@ function getFoodItems() {
                             <p class="ingredients mgn-btm">${ingredients.join(', ')}</p>
                             <p class="mgn-btm fs-big">$${price}</p>
                         </div>
-                        <button class="add-item-btn" data-food-item="${name}"><i class="fa-sharp-duotone fa-solid fa-plus plus-icon"></i></button>
+                        <button class="add-item-btn" data-food-item="${name}" aria-label="Add ${name} to order"><i class="fa-sharp-duotone fa-solid fa-plus plus-icon"></i></button>
                      </div> `
     }).join('')
 }
@@ -139,11 +139,11 @@ function getOrderCompleteMsg() {
         <div class="rating">
             <h3 class="mgn-btm-2">Rate your experience</h3>
             <div class="star-container mgn-btm">
-               <button><i class="fa-regular fa-star" data-star-num="1"></i></button>
-               <button><i class="fa-regular fa-star" data-star-num="2"></i></button>
-               <button><i class="fa-regular fa-star" data-star-num="3"></i></button>
-               <button><i class="fa-regular fa-star" data-star-num="4"></i></button>
-               <button><i class="fa-regular fa-star" data-star-num="5"></i></button>
+               <button aria-label="Rate star"><i class="fa-regular fa-star" data-star-num="1"></i></button>
+               <button aria-label="Rate star"><i class="fa-regular fa-star" data-star-num="2"></i></button>
+               <button aria-label="Rate star"><i class="fa-regular fa-star" data-star-num="3"></i></button>
+               <button aria-label="Rate star"><i class="fa-regular fa-star" data-star-num="4"></i></button>
+               <button aria-label="Rate star"><i class="fa-regular fa-star" data-star-num="5"></i></button>
             </div>
             <button id="submit-rating">submit</button>
         <div>
