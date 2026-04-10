@@ -158,11 +158,6 @@ header::before {
     z-index: 0;
 }
 
-.content {
-  position: relative;
-  z-index: 1; /* Keeps text on top of the blur */
-}
-
 section{
     padding: 3rem 3rem;
 }
